@@ -1,3 +1,4 @@
+import Counter from "./components/Counter"
 import Footer from "./components/Footer"
 import MainContent from "./components/MainContent"
 import Navbar from "./components/Navbar"
@@ -6,13 +7,15 @@ const App = () => {
   return (
     <div>
        {/* navbar */}
-       <Navbar />
+       {/* <Navbar /> */}
 
        {/* content */}
-       <MainContent />
+       {/* <MainContent /> */}
       
        {/* footer */}
-       <Footer />
+       {/* <Footer /> */}
+
+       <Counter />
     </div>
   )
 }
