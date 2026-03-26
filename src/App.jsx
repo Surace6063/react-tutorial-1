@@ -1,5 +1,6 @@
 import Counter from "./components/Counter"
 import Footer from "./components/Footer"
+import Form from "./components/Form"
 import MainContent from "./components/MainContent"
 import Navbar from "./components/Navbar"
 
@@ -15,7 +16,8 @@ const App = () => {
        {/* footer */}
        {/* <Footer /> */}
 
-       <Counter />
+       {/* <Counter /> */}
+       <Form />
     </div>
   )
 }
