@@ -3,25 +3,29 @@ import Button from "./ui/button"
 import Label from "./ui/label"
 import Input from "./ui/input"
 
-const Form = () => {
-  const [fullName, setFullName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [country, setCountry] = useState("")
-  const [gender, setGender] = useState("")
-  const [conformPassword,setConformPassword] = useState("")
+const Form2 = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    country: "",
+    gender: "",
+    conformPassword: ""
+  })
+
+  // handle change
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
 
   const handleSubmit = (e) => {
     // prevent default browser reload
     e.preventDefault()
-
-    const formData = {
-      fullName,
-      email,
-      password,
-      country,
-      gender
-    }
 
     // logic to send to backend (........)
 
@@ -40,8 +44,9 @@ const Form = () => {
             type="text"
             placeholder="Enter your fullname"
             id="fullName"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
           />
         </div>
 
@@ -50,9 +55,10 @@ const Form = () => {
           <Input
             type="email"
             placeholder="Enter your email"
+            name="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
 
@@ -61,9 +67,10 @@ const Form = () => {
           <Input
             type="password"
             id="password"
+            name="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
           />
         </div>
 
@@ -73,8 +80,8 @@ const Form = () => {
             type="password"
             id="conformPassword"
             placeholder="Enter your password again"
-            value={conformPassword}
-            onChange={(e) => setConformPassword(e.target.value)}
+            value={formData.conformPassword}
+            onChange={handleChange}
           />
         </div>
 
@@ -84,8 +91,8 @@ const Form = () => {
             name="country"
             id="country"
             className="border border-gray-300 p-2 rounded-md w-full"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            value={formData.country}
+            onChange={handleChange}
           >
             <option value="">Select a country</option>
             <option value="np">Nepal</option>
@@ -102,8 +109,8 @@ const Form = () => {
               value="male"
               name="gender"
               id="male"
-              checked={gender === "male"}
-              onChange={(e) => setGender(e.target.value)}
+              checked={formData.gender === "male"}
+              onChange={handleChange}
             />
             <Label htmlFor="male">Male</Label>
           </div>
@@ -114,8 +121,8 @@ const Form = () => {
               value="female"
               name="gender"
               id="female"
-              checked={gender === "female"}
-              onChange={(e) => setGender(e.target.value)}
+              checked={formData.gender === "female"}
+              onChange={handleChange}
             />
             <Label htmlFor="female">FeMale</Label>
           </div>
@@ -128,4 +135,4 @@ const Form = () => {
     </div>
   )
 }
-export default Form
+export default Form2
