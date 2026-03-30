@@ -4,6 +4,7 @@ import Form from "./components/Form"
 import Form2 from "./components/Form2"
 import MainContent from "./components/MainContent"
 import Navbar from "./components/Navbar"
+import ReactHookForm from "./components/ReactHookForm"
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
 
        {/* <Counter /> */}
        {/* <Form /> */}
-       <Form2 />
+       {/* <Form2 /> */}
+       <ReactHookForm />
     </div>
   )
 }
