@@ -4,6 +4,7 @@ import Form from "./components/Form"
 import Form2 from "./components/Form2"
 import MainContent from "./components/MainContent"
 import Navbar from "./components/Navbar"
+import ProductList from "./components/ProductList"
 import ReactHookForm from "./components/ReactHookForm"
 import UseEffect from "./components/UseEffect"
 import UserList from "./components/UserList"
@@ -25,7 +26,8 @@ const App = () => {
        {/* <Form2 /> */}
        {/* <ReactHookForm /> */}
        {/* <UseEffect /> */}
-       <UserList />
+       {/* <UserList /> */}
+       <ProductList />
     </div>
   )
 }
