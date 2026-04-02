@@ -1,24 +1,39 @@
 import { useEffect, useState } from "react"
 import PCard from "./PCard"
+import axios from "axios"
 
 const ProductList = () => {
     const [products,setProducts] = useState(null)
+    const [isLoading,setIsLoading] = useState(false)
+    const [error,setError] = useState("")
 
   useEffect(() => {
     // function to call api
     const getProducts = async () => {
+      setIsLoading(true)
+      setError("")
       try {
-        const response = await fetch("https://api.escuelajs.co/api/v1/products")
-        const data = await response.json()
-        console.log(data)
-        setProducts(data) // updates products state with api response
+        const response = await axios.get("https://api.escuelajs.co/api/v1/products")
+        console.log(response.data)
+        setProducts(response.data) // updates products state with api response
       } catch (error) {
         console.log(error)
+        setError("Error fetching data!")
+      }finally{
+         setIsLoading(false)
       }
     }
 
     getProducts()
   }, [])
+
+  if(isLoading) {
+    return <p>loading...</p>
+  }
+
+  if(error){
+    return <p>{error}</p>
+  }
 
   return (
     <div className="p-4">
