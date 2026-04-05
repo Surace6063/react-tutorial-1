@@ -14,7 +14,8 @@ const Products = () => {
         "https://api.escuelajs.co/api/v1/products"
       )
       return response.data
-    }
+    },
+    staleTime: 5000 // data is fresh for 5 sec (no refecth during this time)
   })
 
   if (isLoading) return <p>loading...</p>

@@ -1,3 +1,4 @@
+import CategoryList from "./components/CategoryList"
 import Counter from "./components/Counter"
 import Footer from "./components/Footer"
 import Form from "./components/Form"
@@ -7,6 +8,7 @@ import Navbar from "./components/Navbar"
 import ProductList from "./components/ProductList"
 import Products from "./components/Products"
 import ReactHookForm from "./components/ReactHookForm"
+import SingleProduct from "./components/SingleProduct"
 import UseEffect from "./components/UseEffect"
 import UserList from "./components/UserList"
 
@@ -29,6 +31,8 @@ const App = () => {
        {/* <UseEffect /> */}
        {/* <UserList /> */}
        {/* <ProductList /> */}
+       <SingleProduct />
+       <CategoryList />
        <Products />
     </div>
   )
