@@ -1,138 +1,27 @@
-import CategoryList from "./components/CategoryList"
-import Counter from "./components/Counter"
-import Footer from "./components/Footer"
-import Form from "./components/Form"
-import Form2 from "./components/Form2"
-import MainContent from "./components/MainContent"
+import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
-import ProductList from "./components/ProductList"
-import Products from "./components/Products"
-import ReactHookForm from "./components/ReactHookForm"
-import SingleProduct from "./components/SingleProduct"
-import UseEffect from "./components/UseEffect"
-import UserList from "./components/UserList"
+import HomePage from "./pages/HomePage"
+import ContactPage from "./pages/ContactPage"
+import ProductPage from "./pages/ProductPage"
+import LoginPage from "./pages/LoginPage"
+import RegisterPage from "./pages/RegisterPage"
+import Footer from "./components/Footer"
 
 const App = () => {
   return (
     <div>
-       {/* navbar */}
-       {/* <Navbar /> */}
-
-       {/* content */}
-       {/* <MainContent /> */}
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
       
-       {/* footer */}
-       {/* <Footer /> */}
-
-       {/* <Counter /> */}
-       {/* <Form /> */}
-       {/* <Form2 /> */}
-       {/* <ReactHookForm /> */}
-       {/* <UseEffect /> */}
-       {/* <UserList /> */}
-       {/* <ProductList /> */}
-       <SingleProduct />
-       <CategoryList />
-       <Products />
+      <Footer />
     </div>
   )
 }
 
 export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import './App.css'
-
-// // component -> it is a js function that returns jsx
-
-// const App = () => {
-//   const text = "React JS"
-//   const num1 = 10
-//   const num2 = 20
-  
-//   // boolean
-//   let msg = ""
-//   const isVerified = true
-
-//   if(isVerified){
-//     msg = "You can access protected page."
-//   }else{
-//     msg = "You are not verified."
-//   }
-
-//   const age = 20
-
-//   const isAdmin = true
-
-//   return (
-//     <div className='p-4'>
-//       <h1 className='text-xl font-extrabold mb-3 text-red-800'>
-//         This is {text}. This is awesome.
-//       </h1>
-//       <p>
-//         The sum of {num1} and {num2} is 
-//         {num1 + num2}
-//       </p>
-//       <button 
-//       className="bg-teal-800 text-white px-6 py-2 rounded-md">
-//         Click Me
-//       </button>
-//       <p>
-//         {msg}
-//       </p>
-
-//       {/* terniary operator : condition ? true statement : false-statement */}
-
-//       {
-//         age >= 18 ? (
-//           <>
-//             <p>You can vote.</p>
-//             <button>vote</button>
-//           </>
-//         ) : (
-//          <>
-//             <p>You cannot vote.</p>
-//             <button>go back</button>
-//          </>
-//         )
-//       }
-      
-//       <br />
-//       <br />
-//       <hr />
-//       <div>
-//         {
-//           isAdmin && (
-//            <div>
-//              <p>Welcome, Admin!</p>
-//              <button className="bg-rose-700 text-white px-6 py-2 rounded-md">
-//               go to admin dashboard
-//               </button>
-//            </div>
-//           )
-//         }
-//       </div>
-
-//       {
-//         age >= 18 && (
-//           <p>You are legal to access site.</p>
-//         )
-//       }
-//     </div>
-//   )
-// }
-
-// export default App
