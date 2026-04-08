@@ -9,6 +9,7 @@ import Footer from "./components/Footer"
 import PageNotFound from "./pages/PageNotFound"
 import SingleProductPage from "./pages/SingleProductPage"
 import MainLayout from "./layouts/MainLayout"
+import ProtectedRoute from "./utils/ProtectedRoute"
 
 const App = () => {
   return (
@@ -17,11 +18,14 @@ const App = () => {
         {/* main layout */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/product/:id" element={<SingleProductPage />} />
+           {/* protected route */}
+          <Route element={<ProtectedRoute />}>
+               <Route path="/contact" element={<ContactPage />} />
+          </Route>
         </Route>
 
         {/* error page */}
