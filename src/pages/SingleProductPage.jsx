@@ -1,10 +1,16 @@
 import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import Button from "../components/ui/button"
+import { Minus, Plus, ShoppingCart } from 'lucide-react';
+import { useQuantity } from "../context/QuantityContext";
 
 const SingleProductPage = () => {
   // useParams -> allows you to access dynamic values from the URL
   const { id } = useParams()
+
+  // accessing quantity state from QuantityContext
+  const {quantity,increment,decrement} = useQuantity()
 
   const {
     data: product,
@@ -12,7 +18,7 @@ const SingleProductPage = () => {
     error
   } = useQuery({
     // invalidate cache data and refetch fresh data when id value changes
-    queryKey: ["product",id],
+    queryKey: ["product", id],
     queryFn: async () => {
       const response = await axios.get(
         `https://api.escuelajs.co/api/v1/products/${id}`
@@ -44,6 +50,22 @@ const SingleProductPage = () => {
             <p className="text-gray-600 mt-2 text-justify">
               {product.description}
             </p>
+          </div>
+          {/* add to cart */}
+          <div className="flex items-center gap-1.5 mt-6">
+            <Button variant="outline" onClick={increment}>
+              <Plus />
+            </Button>
+            <p>
+              {quantity}
+            </p>
+            <Button variant="outline" onClick={decrement}>
+              <Minus />
+            </Button>
+
+            <Button className="ml-6 flex gap-2 items-center">
+              Add to Cart <ShoppingCart size={20} />
+            </Button>
           </div>
         </div>
       </div>

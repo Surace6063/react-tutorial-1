@@ -1,15 +1,20 @@
 import Button from "./ui/button"
 import { Link } from "react-router-dom"
+import { Handbag } from 'lucide-react';
+import { useQuantity } from "../context/QuantityContext";
 
 const Navbar = () => {
+  // accessing quantity state from QuantityContext
+  const {quantity} = useQuantity()
+
   return (
-    <nav className="border-b border-slate-300 bg-white py-4 shadow">
+    <nav className="border-b border-slate-300 bg-white py-4 shadow sticky top-0">
       <div className="container flex justify-between items-center">
         <Link to="/">
           <h1 className="text-rose-600 font-bold text-2xl">Logo</h1>
         </Link>
 
-        <ul className="flex gap-4 font-medium">
+        <ul className="hidden md:flex gap-4 font-medium">
           <Link to="/">
             <li>Home</li>
           </Link>
@@ -23,7 +28,7 @@ const Navbar = () => {
           </Link>
         </ul>
 
-        <div className="space-x-4">
+        <div className="flex gap-4 items-center">
           <Link to="/login">
             <Button>login</Button>
           </Link>
@@ -31,6 +36,14 @@ const Navbar = () => {
           <Link to="/register">
             <Button variant="outline">register</Button>
           </Link>
+
+          <div className="flex gap-1 items-center">
+            <Handbag />
+            <span>
+              {quantity}
+            </span>
+          </div>
+
         </div>
       </div>
     </nav>
