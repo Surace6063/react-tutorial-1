@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 // 1. Create context
 // This creates a "global store"
@@ -8,7 +8,10 @@ export const QuantityContext = createContext()
 // This component will wrap our app and provide data
 export const QuantityProvider = ({ children }) => {
   // create state (global state)
-  const [quantity, setQuantity] = useState(0)
+  // set initial value if present in localstorage else 0
+  const [quantity, setQuantity] = useState(()=>{
+   return JSON.parse(localStorage.getItem("quantity")) || 0
+  })
 
   // function to increase quantity by 1
   const increment = () => {
@@ -19,6 +22,12 @@ export const QuantityProvider = ({ children }) => {
   const decrement = () => {
     setQuantity(quantity - 1)
   }
+
+  // saving quantity state to localstorage
+  useEffect(()=>{
+    localStorage.setItem("quantity",JSON.stringify(quantity))
+  },[quantity])
+
 
   return (
     <QuantityContext.Provider value={{ quantity, increment, decrement }}>
