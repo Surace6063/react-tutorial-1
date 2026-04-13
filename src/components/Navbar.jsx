@@ -2,10 +2,14 @@ import Button from "./ui/button"
 import { Link } from "react-router-dom"
 import { Handbag } from 'lucide-react';
 import { useQuantity } from "../context/QuantityContext";
+import useQuantityStore from "../zustand/QuantityStore";
 
 const Navbar = () => {
   // accessing quantity state from QuantityContext
-  const {quantity} = useQuantity()
+  // const {quantity} = useQuantity()
+
+  // accessing quantity state from QUantityStore(zustand)
+  const {quantity} = useQuantityStore()
 
   return (
     <nav className="border-b border-slate-300 bg-white py-4 shadow sticky top-0">

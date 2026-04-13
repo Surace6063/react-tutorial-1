@@ -4,13 +4,18 @@ import axios from "axios"
 import Button from "../components/ui/button"
 import { Minus, Plus, ShoppingCart } from 'lucide-react';
 import { useQuantity } from "../context/QuantityContext";
+import useQuantityStore from "../zustand/QuantityStore";
 
 const SingleProductPage = () => {
   // useParams -> allows you to access dynamic values from the URL
   const { id } = useParams()
 
   // accessing quantity state from QuantityContext
-  const {quantity,increment,decrement} = useQuantity()
+  // const {quantity,increment,decrement} = useQuantity()
+
+  // accessing quantity state and functions from useQuantityStore(zustand)
+  const {quantity,increment,decrement} = useQuantityStore()
+  
 
   const {
     data: product,
